@@ -1,6 +1,7 @@
 # Statistical Learning with R
 
 **R code with various statistical learning methods of ISLR book.**
+https://www-bcf.usc.edu/~gareth/ISL/
 
 **All the models are initially implemented from scratch, and later using the prebuilt libraries.**
 
