@@ -5,6 +5,9 @@ https://www-bcf.usc.edu/~gareth/ISL/
 
 **All the models are initially implemented from scratch, and later using the prebuilt libraries.**
 
+<img src="https://github.com/dean-sh/Statistical-Learning/raw/master/Classification%20-%20Logistic%20Regression/AutoDataset.png"/>
+
+
 **Datasets:** Boston, SMarket, Default, Diabetes, Auto and others.
 
 - KNN for regression and classification
