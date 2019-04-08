@@ -63,3 +63,39 @@ accuracy(predicted = seat_test_predict, actual = test$Sales)
 
 #Cross Validation:
 
+
+tree_cv = cv.tree(TrainTree, FUN = prune.misclass)
+
+min_idx = which.min(tree_cv$dev)
+minDev = tree_cv$size[min_idx]
+
+par(mfrow = c(1,2))
+plot(tree_cv)
+plot(tree_cv, type = 'b')
+
+
+#Pruning
+#prune.missclass instead of prune.tree
+pruned_tree_cv = prune.misclass(TrainTree, best = 9)
+summary(pruned_tree_cv)
+
+par(mfrow = c(1,1))
+plot(pruned_tree_cv)
+text(pruned_tree_cv, prett = 0, cex = 0.8)
+title(main = "Pruned Classification Tree")
+
+
+seat_trn_predict_p = predict(pruned_tree_cv, train, type="class")
+seat_test_predict_p = predict(pruned_tree_cv, test, type="class")
+
+#Confusion Matrixes:
+table(predicted = seat_trn_predict_p, actual = train$Sales)
+table(predicted = seat_test_predict_p, actual = test$Sales)
+
+
+#Accuracy:
+accuracy(predicted = seat_trn_predict_p, actual = train$Sales)
+accuracy(predicted = seat_test_predict_p, actual = test$Sales)
+
+
+
