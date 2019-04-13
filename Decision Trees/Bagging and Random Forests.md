@@ -1,11 +1,7 @@
 ---
 title: "Random Forest and bagging of Boston Dataset"
-output: html_document
+output:html_notebook
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 In this notebook we will use Random Forest to predict houses median value, 
 from the Boston Dataset. 
@@ -18,8 +14,11 @@ set.seed(42)
 data(Boston)
 text(Boston)
 attach(Boston)
-Boston
+names(Boston)
+
 ```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
 Train-Test Split:
 ```{r}
