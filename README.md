@@ -1,6 +1,6 @@
 # Statistical Machine Learning Algorithms, implemented in R
 
-**In this repo I present Various Statistical and Machine Learning Algorithms, mainly from the ISLR book and datasets**
+**Various Statistical and Machine Learning Algorithms, mainly from the ISLR book and datasets.**
 
 **Topics: Linear Regression, Logistic Regression, Trees & Random Forest, KNN, SVM etc.**
 In addition to important Machine Learning methods such as **Cross-Validation, Model & Feature Selection, Regularization**. 
