@@ -46,7 +46,7 @@ test = Hitters[-train_index,]
 
 #Best subset regression (max variables)
 fit.best = regsubsets(Salary~., data = train, nvmax = 19)
-summary(fit.best)
+fit.best.summary = summary(fit.best)
 
 #Predictions
 
@@ -63,3 +63,14 @@ for (i in 1:19){
 
 which.min(test.mse)
 coef(fit.best, which.min(test.mse))
+
+
+par(mfrow = c(2,2))
+plot(fit.best.summary$cp, xlab = "Number of Variables", ylab = "CP", type = "b")
+points(which.min(fit.best.summary$cp), fit.best.summary$cp[which.min(fit.best.summary$cp)], col = "red")
+plot(fit.best.summary$adjr2, xlab = "Number of Variables", ylab = "adjr2", type = "b")
+points(which.max(fit.best.summary$adjr2), fit.best.summary$adjr2[which.max(fit.best.summary$adjr2)], col = "red")
+plot(fit.best.summary$rss, xlab = "Number of Variables", ylab = "rss", type = "b")
+points(which.min(fit.best.summary$rss), fit.best.summary$rss[which.min(fit.best.summary$rss)], col = "red")
+plot(fit.best.summary$bic, xlab = "Number of Variables", ylab = "bic", type = "b")
+points(which.min(fit.best.summary$bic), fit.best.summary$bic[which.min(fit.best.summary$bic)], col = "red")
