@@ -1,7 +1,7 @@
 # Decision Tree Algorithm From Scratch
+library(dplyr)
 
 df = read.csv("breast-cancer-wisconsin.data")
-names = data("breast-cancer-wisconsin.names")
 
 names = c("ID", "Clump Thickness", "Uniformity Cell Size", "Uniformity Cell Shape",
           "Marginal Adhesion", "Single Epithelial size", "Bare Nuclei",
@@ -13,6 +13,7 @@ df[df=="?"] = NA
 levels(df$Class) = c("benign","malignant")
 
 df = na.omit(df)
+df = select(df, -ID)
 
 entropy = function(data){
   if (!is.factor(data)) data = factor(data)
@@ -28,7 +29,7 @@ pure = function(data){
   length(unique(data$Class))==1
 }
 
-#Recursive Binary SPlitting
+#Recursive Binary Splitting ID3
 RBS = function(node, data) {
   
   node$Num.Observations = nrow(data)
@@ -51,6 +52,20 @@ RBS = function(node, data) {
     feature = names(entropy.val)[entropy.val == max(entropy.val)][1]
     node$feature = feature
     
+    #subset the remaining data
+    childSubset = split(data[,!(names(data) %in% feature)], data[,feature], drop = TRUE)
     
+    for(i in 1:length(childSubset)) {
+      child <- node$AddChild(names(childSubset)[i])
+      
+      #call the algorithm recursively on the child and the subset      
+      RBS(child, childSubset[[i]])
+    }
   }
-  }
+}
+
+Tree = Node$new("Bare Nuclei")
+plot(Tree)  
+RBS(Tree, df)
+
+plot(Tree)
