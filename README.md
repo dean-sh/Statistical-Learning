@@ -10,4 +10,4 @@ All the models are initially implemented from scratch, and later using the prebu
 
 https://www-bcf.usc.edu/~gareth/ISL/
 
-<img src="https://github.com/dean-sh/Statistical-Learning/raw/master/Classification%20-%20Logistic%20Regression/AutoDataset.png"/>
+<img src="https://github.com/dean-sh/Statistical-Learning/raw/master/Logistic%20Regression/AutoDataset.png"/>
