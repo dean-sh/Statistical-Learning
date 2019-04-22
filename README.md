@@ -6,6 +6,7 @@
 In addition to important Machine Learning methods such as **Cross-Validation, Model & Feature Selection, Regularization**. 
 
 All the models are initially implemented from scratch, and later using the prebuilt libraries.
+(c) Dean Shabi
 
 https://www-bcf.usc.edu/~gareth/ISL/
 
